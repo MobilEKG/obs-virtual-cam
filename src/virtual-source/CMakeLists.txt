@@ -19,13 +19,15 @@ set(virtualsource_HEADERS
 	
 set(DShowPath "../../dshowdeps/include")
 
-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
-	find_library(DShowLib strmbase PATHS "../../dshowdeps/lib/x64" NO_DEFAULT_PATH)
-	find_library(DShowLibD strmbasd PATHS "../../dshowdeps/lib/x64" NO_DEFAULT_PATH)
-else()
-	find_library(DShowLib strmbase PATHS "../../dshowdeps/lib/x86" NO_DEFAULT_PATH)
-	find_library(DShowLibD strmbasd PATHS "../../dshowdeps/lib/x86" NO_DEFAULT_PATH)
-endif()
+# if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+	# find_library(DShowLib strmbase PATHS "../../dshowdeps/lib/x64" NO_DEFAULT_PATH)
+	# find_library(DShowLibD strmbasd PATHS "../../dshowdeps/lib/x64" NO_DEFAULT_PATH)
+# else()
+	# find_library(DShowLib strmbase PATHS "../../dshowdeps/lib/x86" NO_DEFAULT_PATH)
+	# find_library(DShowLibD strmbasd PATHS "../../dshowdeps/lib/x86" NO_DEFAULT_PATH)
+# endif()
+set(DShowLibD "../../../build/src/baseclasses/Debug/strmbasd")
+set(DShowLib "../../../build/src/baseclasses/Release/strmbase")
 
 add_library(obs-virtualsource MODULE
 	${virtualsource_SOURCES}
